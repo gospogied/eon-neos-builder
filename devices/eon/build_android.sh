@@ -3,6 +3,9 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 ROOT=$DIR/../..
 TOOLS=$ROOT/tools
+DEFAULT_TARGET="oneplus3"
+
+TARGET="$1"
 
 cd $DIR
 source build_env.sh
@@ -30,4 +33,4 @@ $TOOLS/repo init -u https://github.com/commaai/android.git -b aa44fb6fe6291f5a22
 $TOOLS/repo sync -c -j$JOBS
 
 export PATH=$PWD/bin:$PATH
-(source build/envsetup.sh && breakfast oneplus3 && make -j$JOBS)
+(source build/envsetup.sh && breakfast "${TARGET:-$DEFAULT_TARGET}" && make -j$JOBS)

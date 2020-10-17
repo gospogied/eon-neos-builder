@@ -16,7 +16,7 @@ from your PATH if necessary.
    - `git config --global user.name "John Doe"`
    - `git config --global user.email "john.doe@example.com`
    - `git config --global color.ui true`
-2. Build everything. This will pull `/usr` from the latest shipped NEOS. `./build_all.sh`
+2. Build everything. This will pull `/usr` from the latest shipped NEOS. `./build_all.sh [TARGET]`
 3. Build OTA images. `./prepare_ota.sh`
 
 # Build procedure with clean /usr
@@ -24,7 +24,7 @@ This process requires an EON connected with [Comma Smays](https://comma.ai/shop/
 1. Build all images with clean `/usr`: `CLEAN_USR=1 ./build_all.sh`
 2. Flash everything to EON: `sudo ./flash.sh`
 3. SSH into EON and run `~/install.sh` to finishing building all packages
-4. Build new system image with compiled packages. Make sure EON is still connected for this step since it will pull `/usr` from the EON. `CLEAN_USR=1 STAGE2=1 ./build_system.sh`
+4. Build new system image with compiled packages. Make sure EON is still connected for this step since it will pull `/usr` from the EON. `CLEAN_USR=1 STAGE2=1 ./build_system.sh [TARGET]`
 5. Build OTA images: `./prepare_ota.sh`
 
 # Comma internal only: publishing NEOS images to Azure

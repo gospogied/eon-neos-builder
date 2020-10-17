@@ -4,11 +4,14 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 OUT=$DIR/out
 ROOT=$DIR/../..
 TOOLS=$ROOT/tools
+DEFAULT_TARGET="oneplus3"
+
+TARGET="$1"
 
 cd $DIR
 source build_env.sh
 
-./build_android.sh
+./build_android.sh "${TARGET:-$DEFAULT_TARGET}"
 
 mkdir -p $OUT
 
@@ -30,7 +33,7 @@ popd
 
 cd $DIR/mindroid
 
-$TOOLS/simg2img $DIR/mindroid/system/out/target/product/oneplus3/system.img system.img.raw
+$TOOLS/simg2img $DIR/mindroid/system/out/target/product/"${TARGET:-$DEFAULT_TARGET}"/system.img system.img.raw
 mkdir -p mnt
 sudo mount -o loop system.img.raw mnt
 sudo mkdir -p mnt/comma
