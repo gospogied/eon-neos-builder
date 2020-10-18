@@ -16,6 +16,11 @@ Supported Devices
 * [OnePlus 3T](https://www.oneplus.com/3t)
 * [LeEco LePro 3](https://www.cnet.com/products/leeco-lepro-3/review/)
 
+Community Supported Devices
+------
+Please be informed that comma.ai is not supporting and not even building anything for those devices, don't even expect it to be working
+* [Xiaomi Mi5 WIP](https://www.mi.com/global/mi5)
+
 What works
 -----
 - [X] **Compute**
