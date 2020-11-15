@@ -11,13 +11,16 @@ TARGET="$1"
 cd $DIR
 source build_env.sh
 
+echo -e "\n\tInvoking build_android.sh"
 ./build_android.sh "${TARGET:-$DEFAULT_TARGET}"
+echo -e "\n\tbuild_android.sh done"
 
 mkdir -p $OUT
 
 
 pushd $DIR/build_usr
 
+echo -e "\n\tInvoking pulls"
 if [ -z "$CLEAN_USR" ]; then
     ./pull_from_release.sh
 else
