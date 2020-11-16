@@ -22,13 +22,16 @@ pushd $DIR/build_usr
 
 echo -e "\n\tInvoking pulls"
 if [ -z "$CLEAN_USR" ]; then
+	echo -e "\n\tPull from release"
     ./pull_from_release.sh
 else
     if [ -z "$STAGE2" ]; then
+		echo -e "\n\tStage 2"
         sudo rm -rf out/
         ./install.py
         ./finish.sh
     else
+		echo -e "\n\tPull from phone"
         ./pull_from_phone.sh
     fi
 fi
